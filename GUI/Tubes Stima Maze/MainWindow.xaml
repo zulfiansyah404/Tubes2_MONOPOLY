@@ -34,11 +34,11 @@
 
             <!--// Main Menu //-->
 
-            <Menu Height="544"
+            <Menu Height="620"
                   Background="Transparent">
                 <Grid Width="221" Height="400">
 
-                    <StackPanel HorizontalAlignment="Center" Width="221" Height="500" VerticalAlignment="Top">
+                    <StackPanel HorizontalAlignment="Center" Width="221" Height="400" VerticalAlignment="Center">
                         <Rectangle 
                             AllowDrop="True"
                             Fill="DimGray"
@@ -100,17 +100,40 @@
                                 Foreground="White"/>
                         </ComboBox>
 
-
-
                     </StackPanel>
+
+
 
 
                 </Grid>
 
+                <Button
+                            x:Name="Visualize"
+                            Background="Black"
+                            BorderThickness="10"
+                            Content="Visualize"
+                            Foreground="White"
+                            Height="52" Width="152"
+                            BorderBrush="Transparent"
+                            Margin="35,60,0,0"
+                            Cursor="Hand"
+                            Click="Visualize_Click"
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center">
+                </Button>
+
             </Menu>
 
         </StackPanel>
-        
+
+        <!--// Visualizer Maze //-->
+
+        <StackPanel Width="665"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Left" Margin="235,0,0,0">
+    
+        </StackPanel>
+
 
     </Grid>
 </Window>

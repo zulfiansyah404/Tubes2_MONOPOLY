@@ -51,5 +51,10 @@ namespace Tubes_Stima_Maze
         {
             MessageBox.Show("DFS");
         }
+
+        private void Visualize_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
