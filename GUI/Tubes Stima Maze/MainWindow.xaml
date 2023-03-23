@@ -107,21 +107,21 @@
 
                 </Grid>
 
+                <Grid Width="222" Height="218">
                 <Button
                             x:Name="Visualize"
                             Background="Black"
                             BorderThickness="10"
                             Content="Visualize"
                             Foreground="White"
-                            Height="52" Width="152"
+                            Margin="0,-100,0,0"
                             BorderBrush="Transparent"
-                            Margin="35,60,0,0"
                             Cursor="Hand"
                             Click="Visualize_Click"
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Center">
-                </Button>
-
+                            HorizontalAlignment="Center" Height="51" Width="151"
+                            VerticalAlignment="Center"
+                            />
+                </Grid>
             </Menu>
 
         </StackPanel>
@@ -131,7 +131,7 @@
         <StackPanel Width="665"
                     Orientation="Vertical"
                     HorizontalAlignment="Left" Margin="235,0,0,0">
-    
+
         </StackPanel>
 
 
