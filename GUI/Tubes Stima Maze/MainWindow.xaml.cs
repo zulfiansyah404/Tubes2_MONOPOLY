@@ -41,5 +41,15 @@ namespace Tubes_Stima_Maze
                 MessageBox.Show(filepath);
             }
         }
+
+        private void buttonBFS_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("BFS");
+        }
+
+        private void buttonDFS_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("DFS");
+        }
     }
 }

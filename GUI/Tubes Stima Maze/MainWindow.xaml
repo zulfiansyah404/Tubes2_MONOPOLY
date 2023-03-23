@@ -34,11 +34,11 @@
 
             <!--// Main Menu //-->
 
-            <Menu Height="450"
+            <Menu Height="544"
                   Background="Transparent">
-                <Grid Width="221" Height="247">
+                <Grid Width="221" Height="400">
 
-                    <StackPanel HorizontalAlignment="Center" Width="221">
+                    <StackPanel HorizontalAlignment="Center" Width="221" Height="500" VerticalAlignment="Top">
                         <Rectangle 
                             AllowDrop="True"
                             Fill="DimGray"
@@ -69,8 +69,36 @@
                             BorderBrush="Transparent"
                             Margin="0,20,0,0"
                             HorizontalAlignment="Center" 
+                            Cursor="Hand"
                             Click="UploadFile_Click" />
+                        <Label 
+                            Content="ALGORITMA"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"/>
 
+                        <ComboBox 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Width="140"
+                            Foreground="White"
+                            Background="Black"
+                            FontSize="15"
+                            IsEditable="True" 
+                            Padding="5"
+                            Margin="10"
+                            Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
+                            <ComboBoxItem 
+                                Content="DFS"
+                                FontSize="15"
+                                Background="Black"
+                                Foreground="White"/>
+                            <ComboBoxItem 
+                                Content="BFS"
+                                FontSize="15"
+                                Background="Black"
+                                Foreground="White"/>
+                        </ComboBox>
 
 
 
@@ -82,6 +110,7 @@
             </Menu>
 
         </StackPanel>
+        
 
     </Grid>
 </Window>
