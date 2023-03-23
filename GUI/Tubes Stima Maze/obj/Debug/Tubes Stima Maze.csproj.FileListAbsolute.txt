@@ -1,0 +1,32 @@
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\bin\Debug\Tubes Stima Maze.exe.config
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\bin\Debug\Tubes Stima Maze.exe
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\bin\Debug\Tubes Stima Maze.pdb
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.AssemblyReference.cache
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.SuggestedBindingRedirects.cache
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\MainWindow.g.cs
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\App.g.cs
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze_MarkupCompile.cache
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze_MarkupCompile.lref
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\MainWindow.baml
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.g.resources
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes_Stima_Maze.Properties.Resources.resources
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.GenerateResource.cache
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.CoreCompileInputs.cache
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.exe
+C:\Users\Haidar\source\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.pdb
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\bin\Debug\Tubes Stima Maze.exe.config
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\bin\Debug\Tubes Stima Maze.exe
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\bin\Debug\Tubes Stima Maze.pdb
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.AssemblyReference.cache
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.SuggestedBindingRedirects.cache
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\MainWindow.g.cs
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\App.g.cs
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze_MarkupCompile.cache
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze_MarkupCompile.lref
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\MainWindow.baml
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.g.resources
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes_Stima_Maze.Properties.Resources.resources
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.GenerateResource.cache
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.CoreCompileInputs.cache
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.exe
+D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.pdb
