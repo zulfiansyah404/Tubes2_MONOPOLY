@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Windows.Shapes;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Tubes_Stima_Maze
 {
@@ -123,7 +124,9 @@ namespace Tubes_Stima_Maze
         {
             int rows = matrix.GetLength(0);
             int cols = matrix.GetLength(1);
-            int cellSize = 50;
+            // cellSize = 350/banyaknya kolom
+            double cellSize = 350.0 / cols;
+            double cellSize2 = 350.0 / rows;
 
             // Membersihkan canvas
             canvas.Children.Clear();
@@ -132,20 +135,18 @@ namespace Tubes_Stima_Maze
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    // Membuat kotak berisi karakter pada posisi (i, j)
-                    Rectangle rect = new Rectangle()
-                    {
-                        Width = cellSize,
-                        Height = cellSize,
-                        Stroke = Brushes.Black,
-                        StrokeThickness = 1,
-                        Fill = GetColorForChar(matrix[i, j])
-                    };
+                    // Membuat rectangle
+                    Rectangle rect = new Rectangle();
+                    rect.Width = cellSize;
+                    rect.Height = cellSize2;
+                    rect.Stroke = Brushes.Black;
+                    rect.Fill = GetColorForChar(matrix[i, j]);
+                    
 
-                    // Menempatkan kotak pada canvas
-                    Canvas.SetLeft(rect, j * cellSize);
-                    Canvas.SetTop(rect, i * cellSize);
+                    // Menempatkan rectangle pada canvas
                     canvas.Children.Add(rect);
+                    Canvas.SetLeft(rect, j * cellSize);
+                    Canvas.SetTop(rect, i * cellSize2);
                 }
             }
         }
@@ -155,13 +156,13 @@ namespace Tubes_Stima_Maze
             switch (c)
             {
                 case 'K':
-                    return Brushes.Green;
+                    return Brushes.Brown;
                 case 'T':
-                    return Brushes.Yellow;
+                    return Brushes.Gold;
                 case 'R':
-                    return Brushes.Blue;
+                    return Brushes.White;
                 case 'X':
-                    return Brushes.Red;
+                    return Brushes.Black;
                 default:
                     return Brushes.White;
             }

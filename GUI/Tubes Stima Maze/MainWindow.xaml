@@ -470,7 +470,7 @@
         </ToolBarPanel>
         <TextBox x:Name="Choose_Algorithm" HorizontalAlignment="Left" Margin="321,26,0,0" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Width="563" Background="{x:Null}" Foreground="#FFE9EBEB" BorderBrush="{x:Null}" TextInput="TextPath_Input" Grid.Row="2" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
         <Grid Grid.RowSpan="2">
-            <Canvas x:Name="canvas" Background="Black" Margin="250,127,300,-411" Width="350" Height="350"/>
+            <Canvas x:Name="canvas" ClipToBounds="True" Background="Black" Margin="250,127,300,-411" Width="350" Height="350"/>
         </Grid>
 
         <Grid Width="296" HorizontalAlignment="Right" Margin="0,59,0,10" Grid.Row="2">
