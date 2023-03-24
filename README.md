@@ -28,4 +28,4 @@ harta karun.
 | -------- | -------- |
 | Afnan Edsa Ramadhan | 13521011 |
 | Muhammad Haidar Akita Tresnadi | 13521025 |
-| Muhammad Zulfiansyah Bayu Pratama | 13521027 |
+| Muhammad Zulfiansyah Bayu Pratama | 13521028 |
