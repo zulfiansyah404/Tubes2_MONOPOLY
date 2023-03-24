@@ -274,6 +274,7 @@ namespace Tubes_Stima_Maze
             string ans = "";
             bool first = true;
             int N = s.Count;
+            //MessageBox.Show(N.ToString());
             int i = 0;
             foreach(var pair in s)
             {
@@ -306,6 +307,8 @@ namespace Tubes_Stima_Maze
             string ans = "";
             bool first = true;
             
+            //MessageBox.Show(s.Count.ToString());
+
             koor node = s.Dequeue();
 
             foreach(var pair in s)
