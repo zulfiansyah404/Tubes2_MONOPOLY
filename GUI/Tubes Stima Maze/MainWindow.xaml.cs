@@ -42,19 +42,19 @@ namespace Tubes_Stima_Maze
             }
         }
 
-        private void buttonBFS_Click(object sender, RoutedEventArgs e)
+        private void Frame_Navigated(object sender, NavigationEventArgs e)
         {
-            MessageBox.Show("BFS");
+
         }
 
-        private void buttonDFS_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("DFS");
+            this.Close();
         }
 
-        private void Visualize_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            this.WindowState = WindowState.Minimized;
         }
     }
 }

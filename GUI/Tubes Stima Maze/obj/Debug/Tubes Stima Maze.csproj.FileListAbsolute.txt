@@ -30,3 +30,19 @@ D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima M
 D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.CoreCompileInputs.cache
 D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.exe
 D:\Visual studio\repos\Tubes Stima Maze\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.pdb
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\bin\Debug\Tubes Stima Maze.exe.config
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\bin\Debug\Tubes Stima Maze.exe
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\bin\Debug\Tubes Stima Maze.pdb
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.AssemblyReference.cache
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.SuggestedBindingRedirects.cache
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\MainWindow.g.cs
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\App.g.cs
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\Tubes Stima Maze_MarkupCompile.cache
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\Tubes Stima Maze_MarkupCompile.lref
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\MainWindow.baml
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.g.resources
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\Tubes_Stima_Maze.Properties.Resources.resources
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.GenerateResource.cache
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.csproj.CoreCompileInputs.cache
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.exe
+C:\Users\zulfi\source\repos\Tubes2_MONOPOLY\GUI\Tubes Stima Maze\obj\Debug\Tubes Stima Maze.pdb

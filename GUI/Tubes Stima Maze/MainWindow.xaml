@@ -5,135 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tubes_Stima_Maze"
         mc:Ignorable="d"
-        Title="Monopoly Treasure Hunt" Height="700" Width="900"
+        Title="Monopoly Treasure Hunt" Height="436" Width="900"
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">
-    <Grid Background="#232628">
+    <Grid Background="#FF1D203E">
 
-        <StackPanel Background="#2E333A"
-                    Width="230"
+        <StackPanel Background="#FF503C76"
+                    Width="253"
                     Orientation="Vertical"
                     HorizontalAlignment="Left">
 
             <Grid Height="50"
                   VerticalAlignment="Top"
-                  Margin="0,30,0,0">
-
-
-                <Separator Height="90"/>
-
-                <TextBlock Text="Monopoly Treasure Hunt"
-                           Foreground="#FFFFFF"
-                           FontFamily="Fonts/#Orbitron Medium"
-                           FontSize="15"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center" />
-
-            </Grid>
+                  Margin="0,30,0,0"/>
 
             <!--// Main Menu //-->
 
-            <Menu Height="620"
-                  Background="Transparent">
-                <Grid Width="221" Height="400">
-
-                    <StackPanel HorizontalAlignment="Center" Width="221" Height="400" VerticalAlignment="Center">
-                        <Rectangle 
-                            AllowDrop="True"
-                            Fill="DimGray"
-                            RadiusX="10"
-                            RadiusY="10"
-                            StrokeDashArray="12"
-                            StrokeThickness="2"
-                            StrokeDashCap="Round"
-                            Stroke="Black"
-                            Height="153"
-                            Width="145"
-                            Margin="0,20,0,0"/>
-
-                        <!--// Drag and drop (belum jadi) //-->
-                        <StackPanel
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                            
-                            />
-
-                        <Button 
-                            x:Name="UploadFile"
-                            Background="Black"
-                            BorderThickness="10"
-                            Content="Choose File"
-                            Foreground="White"
-                            Height="52" Width="152"
-                            BorderBrush="Transparent"
-                            Margin="0,20,0,0"
-                            HorizontalAlignment="Center" 
-                            Cursor="Hand"
-                            Click="UploadFile_Click" />
-                        <Label 
-                            Content="ALGORITMA"
-                            FontSize="20"
-                            HorizontalAlignment="Center"
-                            Foreground="White"/>
-
-                        <ComboBox 
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Center" 
-                            Width="140"
-                            Foreground="White"
-                            Background="Black"
-                            FontSize="15"
-                            IsEditable="True" 
-                            Padding="5"
-                            Margin="10"
-                            Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}">
-                            <ComboBoxItem 
-                                Content="DFS"
-                                FontSize="15"
-                                Background="Black"
-                                Foreground="White"/>
-                            <ComboBoxItem 
-                                Content="BFS"
-                                FontSize="15"
-                                Background="Black"
-                                Foreground="White"/>
-                        </ComboBox>
-
-                    </StackPanel>
-
-
-
-
-                </Grid>
-
-                <Grid Width="222" Height="218">
-                <Button
-                            x:Name="Visualize"
-                            Background="Black"
-                            BorderThickness="10"
-                            Content="Visualize"
-                            Foreground="White"
-                            Margin="0,-100,0,0"
-                            BorderBrush="Transparent"
-                            Cursor="Hand"
-                            Click="Visualize_Click"
-                            HorizontalAlignment="Center" Height="51" Width="151"
-                            VerticalAlignment="Center"
-                            />
-                </Grid>
-            </Menu>
-
         </StackPanel>
-
-        <!--// Visualizer Maze //-->
-
-        <StackPanel Width="665"
-                    Orientation="Vertical"
-                    HorizontalAlignment="Left" Margin="235,0,0,0">
-
-        </StackPanel>
-
+        <Frame Content="" Margin="0,0,0,397" Background="#FF2C2F48"/>
+        <TextBlock Text="Monopoly Treasure Hunt"
+            Foreground="#FFFFFF"
+            FontFamily="Fonts/#Orbitron Medium"
+            FontSize="15"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left" Margin="44,10,0,0" />
+        <Button x:Name="Close" Content="X" HorizontalAlignment="Left" Margin="861,-1,0,0" VerticalAlignment="Top" Height="39" Width="39" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFE1E1E1"/>
+        <Button x:Name="Close_Button" Content="X" HorizontalAlignment="Left" Margin="861,-1,0,0" VerticalAlignment="Top" Height="39" Width="39" Click="Button_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFE1E1E1"/>
+        <Button Content="_" HorizontalAlignment="Left" Margin="817,-1,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFE1E1E1" Width="39" Height="39" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
