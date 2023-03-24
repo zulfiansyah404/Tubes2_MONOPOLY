@@ -416,7 +416,7 @@
                 <GradientStop Color="#FF7758D1" Offset="1"/>
             </RadialGradientBrush>
         </Grid.Background>
-        <DockPanel x:Name="PathFile" LastChildFill="False" Margin="230,35,-1,-12" Background="#FF1D203E" Grid.RowSpan="3" Opacity="0.9">
+        <DockPanel x:Name="PathFile" LastChildFill="False" Margin="230,35,-1,0" Background="#FF1D203E" Grid.RowSpan="3" Opacity="0.9">
             <Label Content="Label" Width="0"/>
             <WrapPanel Width="100" Opacity="0.5"/>
         </DockPanel>
@@ -449,16 +449,23 @@
                 <SolidColorBrush Color="Black" Opacity="0.5"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Label Content="Algorithm" Foreground="White" VerticalContentAlignment="Center" Margin="24,0,0,316" Height="38" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" BorderBrush="White" HorizontalAlignment="Left" Grid.Row="2" Width="183" Background="#00000000"/>
-        <ComboBox HorizontalAlignment="Left" Margin="24,80,0,0" Grid.Row="2" VerticalAlignment="Top" Width="183" Opacity="0" Height="38" AlternationCount="-39" ItemStringFormat="Algorithm" Background="Black" Style="{DynamicResource ComboBoxAlgorithm}" IsSynchronizedWithCurrentItem="False" FontSize="10">
+        <Label x:Name="Algorthm_Label" Content="Algorithm" Foreground="White" VerticalContentAlignment="Center" Margin="24,0,0,316" Height="38" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" BorderBrush="White" HorizontalAlignment="Left" Grid.Row="2" Width="183" Background="#00000000"/>
+        <ComboBox x:Name="Algorthm_Box" HorizontalAlignment="Left" Margin="24,80,0,0" Grid.Row="2" VerticalAlignment="Top" Width="183" Opacity="0" Height="38" AlternationCount="-39" ItemStringFormat="Algorithm" Background="Black" Style="{DynamicResource ComboBoxAlgorithm}" IsSynchronizedWithCurrentItem="False" FontSize="10" SelectionChanged="Selection_Algorithm_Change">
             <ComboBoxItem Content="BFS"/>
             <ComboBoxItem Content="DFS"/>
         </ComboBox>
         <Label Content="v" HorizontalAlignment="Left" Margin="187,86,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Code ExtraLight" Opacity="0.5"/>
         <ToolBarPanel Margin="248,52,15,420" Background="#FF313559" Grid.Row="1" Grid.RowSpan="2">
-            <Label Content="Path :" FontWeight="Bold" Foreground="White"/>
+            <Label Content="Path           :" FontWeight="Bold" Foreground="White"/>
         </ToolBarPanel>
-        <TextBox HorizontalAlignment="Left" Margin="292,56,0,0" Grid.RowSpan="3" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Width="592" Background="{x:Null}" Foreground="#FFE9EBEB" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="Path" HorizontalAlignment="Left" Margin="321,56,0,0" Grid.RowSpan="3" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Width="565" Background="{x:Null}" Foreground="#FFE9EBEB" BorderBrush="{x:Null}" TextInput="TextPath_Input" IsReadOnlyCaretVisible="True" IsEnabled="False" SelectionOpacity="0"/>
+        <ToolBarPanel Margin="248,22,15,384" Background="#FF313559" Grid.Row="2">
+            <Label Content="Algorthm  : " FontWeight="Bold" Foreground="White"/>
+        </ToolBarPanel>
+        <TextBox x:Name="Choose_Algorithm" HorizontalAlignment="Left" Margin="321,26,0,0" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Width="563" Background="{x:Null}" Foreground="#FFE9EBEB" BorderBrush="{x:Null}" TextInput="TextPath_Input" Grid.Row="2" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+        <Grid Grid.RowSpan="2">
+            <Canvas x:Name="canvas" Background="Black" Margin="250,127,300,-411" Width="350" Height="350"/>
+        </Grid>
 
     </Grid>
 </Window>

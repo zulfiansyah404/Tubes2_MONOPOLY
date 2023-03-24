@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Runtime.InteropServices;
 using System.IO;
+using System.Windows.Shapes;
 
 namespace Tubes_Stima_Maze
 {
@@ -26,12 +27,12 @@ namespace Tubes_Stima_Maze
 
         public bool IsFileValid(string filePath)
         {
-            // Mengecek apakah file memiliki ekstensi txt
-            if (Path.GetExtension(filePath) != ".txt")
+            // Mengecek apakah file memiliki ekstensi txt dengan 3 karakter terakhir 
+            // adalah .txt
+            if (filePath.Length < 4 || filePath.Substring(filePath.Length - 4) != ".txt")
             {
                 return false;
             }
-
             string[] lines = File.ReadAllLines(filePath);
             int rows = lines.Length;
             int cols = lines[0].Split(' ').Length;
@@ -106,7 +107,10 @@ namespace Tubes_Stima_Maze
                 {
                     MessageBox.Show("File valid");
                     // Tulis path file pada textbox pathFile
-                    pathFile.Text = filepath;
+                    Path.Text = filepath;
+                    // Tampilkan matriks pada canvas
+                    ShowMatrixOnCanvas(this.matriks);
+
                 }
                 else
                 {
@@ -114,6 +118,55 @@ namespace Tubes_Stima_Maze
                 }   
             }
         }
+
+        private void ShowMatrixOnCanvas(char[,] matrix)
+        {
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            int cellSize = 50;
+
+            // Membersihkan canvas
+            canvas.Children.Clear();
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    // Membuat kotak berisi karakter pada posisi (i, j)
+                    Rectangle rect = new Rectangle()
+                    {
+                        Width = cellSize,
+                        Height = cellSize,
+                        Stroke = Brushes.Black,
+                        StrokeThickness = 1,
+                        Fill = GetColorForChar(matrix[i, j])
+                    };
+
+                    // Menempatkan kotak pada canvas
+                    Canvas.SetLeft(rect, j * cellSize);
+                    Canvas.SetTop(rect, i * cellSize);
+                    canvas.Children.Add(rect);
+                }
+            }
+        }
+
+        private Brush GetColorForChar(char c)
+        {
+            switch (c)
+            {
+                case 'K':
+                    return Brushes.Green;
+                case 'T':
+                    return Brushes.Yellow;
+                case 'R':
+                    return Brushes.Blue;
+                case 'X':
+                    return Brushes.Red;
+                default:
+                    return Brushes.White;
+            }
+        }
+
 
         private void buttonBFS_Click(object sender, RoutedEventArgs e)
         {
@@ -143,10 +196,24 @@ namespace Tubes_Stima_Maze
 
         private void Visualize_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void BFS_Cheked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextPath_Input(object sender, TextCompositionEventArgs e)
+        {
+        }
+
+        private void Selection_Algorithm_Change(object sender, SelectionChangedEventArgs e)
+        {
+            Choose_Algorithm.Text = Algorthm_Box.Text;
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
