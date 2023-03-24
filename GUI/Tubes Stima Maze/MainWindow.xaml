@@ -430,8 +430,8 @@
         </DockPanel>
 
         <Frame Content="     &#xA;" Margin="230,0,0,31" Background="#FF2C2F48" Grid.RowSpan="2"/>
-        <Button Content="X" HorizontalAlignment="Left" Margin="865,0,0,0" VerticalAlignment="Top" Click="Close_Click" Background="{x:Null}" Width="35" Height="34" BorderBrush="{x:Null}" Foreground="White" Grid.RowSpan="2" Style="{DynamicResource ButtonWindow}"/>
-        <Button Style="{DynamicResource ButtonWindow}" Content="_" HorizontalAlignment="Left" Margin="830,-1,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Width="35" Height="35" Grid.RowSpan="2" Click="Minimize_Click"/>
+        <Button Content="❌" HorizontalAlignment="Left" Margin="865,0,0,0" VerticalAlignment="Top" Click="Close_Click" Background="{x:Null}" Width="35" Height="34" BorderBrush="{x:Null}" Foreground="White" Grid.RowSpan="2" Style="{DynamicResource ButtonWindow}"/>
+        <Button Style="{DynamicResource ButtonWindow}" Content="➖" HorizontalAlignment="Left" Margin="830,-1,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Width="35" Height="35" Grid.RowSpan="2" Click="Minimize_Click"/>
         <Label Content="Treasure Hunt Solver " Foreground="White" VerticalContentAlignment="Center" Margin="245,0,0,31" Grid.RowSpan="2" Height="35" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" BorderBrush="White" HorizontalAlignment="Left"/>
         <DockPanel x:Name="Logo_Upload" LastChildFill="False" Margin="24,0,693,396" Grid.Row="2">
             <fa:ImageAwesome Icon="Upload" VerticalAlignment="Center" HorizontalAlignment="Left" 
@@ -441,7 +441,7 @@
             <fa:ImageAwesome Icon="Search" 
                 Width="20" x:Name="Uplad_File1" Foreground="#FFB0B0B0" Margin="10,0,0,0"/>
         </DockPanel>
-        <Button Content="Visualize" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Visualize_Click" BorderThickness="0,0,0,0" IsTabStop="False" Focusable="False" Cursor="Hand" AutomationProperties.IsOffscreenBehavior="Offscreen" Margin="24,40,693,356" Grid.Row="2">
+        <Button x:Name="Search_Button" Content="Search" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Visualize_Click" BorderThickness="0,0,0,0" IsTabStop="False" Focusable="False" Cursor="Hand" AutomationProperties.IsOffscreenBehavior="Offscreen" Margin="24,40,693,356" Grid.Row="2">
         </Button>
         <Button Content="Upload File" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="UploadFile_Click" BorderThickness="0,0,0,0" IsTabStop="False" Focusable="False" Cursor="Hand" AutomationProperties.IsOffscreenBehavior="Offscreen" Margin="24,44,693,418" Grid.Row="2"/>
         <Button Content="Upload File" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="UploadFile_Click" BorderThickness="0,0,0,0" IsTabStop="False" Focusable="False" Cursor="Hand" AutomationProperties.IsOffscreenBehavior="Offscreen" Margin="24,0,693,396" Grid.Row="2" />
@@ -461,36 +461,53 @@
             <ComboBoxItem Content="DFS"/>
         </ComboBox>
         <Label Content="v" HorizontalAlignment="Left" Margin="187,86,0,0" Grid.Row="2" VerticalAlignment="Top" Foreground="White" FontFamily="Cascadia Code ExtraLight" Opacity="0.5"/>
-        <ToolBarPanel Margin="248,52,15,420" Background="#FF313559" Grid.Row="1" Grid.RowSpan="2">
-            <Label Content="Path           :" FontWeight="Bold" Foreground="White"/>
+        <ToolBarPanel Margin="248,52,15,420" Grid.Row="1" Grid.RowSpan="2" Background="#FFD10000">
+            <Label Content="Path :" FontWeight="Bold" Foreground="White"/>
         </ToolBarPanel>
-        <TextBox x:Name="Path" HorizontalAlignment="Left" Margin="321,56,0,0" Grid.RowSpan="3" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Width="565" Background="{x:Null}" Foreground="#FFE9EBEB" BorderBrush="{x:Null}" TextInput="TextPath_Input" IsReadOnlyCaretVisible="True" IsEnabled="False" SelectionOpacity="0"/>
-        <ToolBarPanel Margin="248,22,15,384" Background="#FF313559" Grid.Row="2">
-            <Label Content="Algorthm  : " FontWeight="Bold" Foreground="White"/>
+        <TextBox x:Name="Path" HorizontalAlignment="Left" Margin="291,56,0,0" Grid.RowSpan="3" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Width="595" Background="{x:Null}" Foreground="#FFE9EBEB" BorderBrush="{x:Null}" TextInput="TextPath_Input" IsReadOnlyCaretVisible="True" IsEnabled="False" SelectionOpacity="0"/>
+        <ToolBarPanel Margin="617,37,15,369" Background="#FF2638DA" Grid.Row="2">
+            <Label Content="Algorithm  : " FontWeight="Bold" Foreground="White"/>
         </ToolBarPanel>
-        <TextBox x:Name="Choose_Algorithm" HorizontalAlignment="Left" Margin="321,26,0,0" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Width="563" Background="{x:Null}" Foreground="#FFE9EBEB" BorderBrush="{x:Null}" TextInput="TextPath_Input" Grid.Row="2" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+        <TextBox x:Name="Choose_Algorithm" HorizontalAlignment="Left" Margin="693,41,0,0" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Width="195" Background="{x:Null}" Foreground="#FFE9EBEB" BorderBrush="{x:Null}" TextInput="TextPath_Input" Grid.Row="2" IsReadOnlyCaretVisible="True" IsEnabled="False" TextChanged="Choose_Algorithm_TextChanged"/>
         <Grid Grid.RowSpan="2">
             <Canvas x:Name="canvas" ClipToBounds="True" Background="Black" Margin="250,127,300,-411" Width="350" Height="350"/>
+            <Frame Content="" Margin="250,103,300,-62" Background="#FF009B58"/>
+            <Border BorderThickness="1" Margin="617,147,15,-339" CornerRadius="10,10,10,10" Background="#FF5972EF">
+                <Label Content="Output" FontWeight="Bold" Foreground="White" Margin="109,1,0,229" HorizontalAlignment="Left"/>
+            </Border>
         </Grid>
 
         <Grid Width="296" HorizontalAlignment="Right" Margin="0,59,0,10" Grid.Row="2">
-            <Grid x:Name="Route" Margin="0,0,0,325">
-                <Label Content="Route : R-D-R-D" FontWeight="Bold" Foreground="White"
-                       HorizontalAlignment="Center" Margin="0,0,0,10"/>
-            </Grid>
+            <Grid x:Name="Route" Margin="0,0,0,325"/>
             <Grid x:Name="Steps" Margin="0,40,0,281">
-                <Label Content="Steps : 4" FontWeight="Bold" Foreground="White"
-                       HorizontalAlignment="Center"/>
-            </Grid>
-            <Grid x:Name="Nodes" Margin="0,62,0,281">
-                <Label Content="Nodes : 4" FontWeight="Bold" Foreground="White"
-                       HorizontalAlignment="Center" Margin="0,0,0,-10"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="21*"/>
+                    <ColumnDefinition Width="127*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Route" FontWeight="Bold" Foreground="#FF152D63" Grid.ColumnSpan="2" Margin="21,1,230,-23"/>
+                <Label Content="Steps" FontWeight="Bold" Foreground="#FF152D63" Grid.ColumnSpan="2" Margin="21,87,230,-109"/>
+                <Label Content="Execution Time" FontWeight="Bold" Foreground="#FF152D63" Grid.ColumnSpan="2" Margin="23,180,152,-202"/>
+                <Label Content="Nodes" FontWeight="Bold" Foreground="#FF152D63" Grid.ColumnSpan="2" Margin="22,134,229,-156"/>
             </Grid>
             <Grid x:Name="RunTimes" Margin="0,89,0,249">
-                <Label Content="Run Time : 4ms" FontWeight="Bold" Foreground="White"
-                       HorizontalAlignment="Center" Margin="0,0,0,-10"/>
+                <DockPanel LastChildFill="False" Background="#FFD3E5FF" Margin="27,-26,28,-7" Height="60">
+                    <Label Content="Label" Width="0"/>
+                    <TextBox x:Name="Route_Output" TextWrapping="Wrap" Width="241" Background="{x:Null}" SelectionBrush="{x:Null}" TextChanged="TextBox_TextChanged"/>
+                </DockPanel>
+                <DockPanel LastChildFill="False" Background="#FFD3E5FF" Margin="27,62,28,-55" Height="20">
+                    <Label Content="Label" Width="0"/>
+                    <TextBox x:Name="Steps_Output" TextWrapping="Wrap" Background="{x:Null}" SelectionBrush="{x:Null}" Width="241" TextChanged="Steps_Output_TextChanged"/>
+                </DockPanel>
+                <DockPanel LastChildFill="False" Background="#FFD3E5FF" Margin="27,107,28,-100" Height="20">
+                    <Label Content="Label" Width="0"/>
+                    <TextBox x:Name="Nodes_Output" TextWrapping="Wrap" Background="{x:Null}" SelectionBrush="{x:Null}" Width="242"/>
+                </DockPanel>
+                <DockPanel LastChildFill="False" Background="#FFD3E5FF" Margin="27,153,28,-146" Height="20">
+                    <Label Content="Label" Width="0"/>
+                    <TextBox x:Name="Execution_Time_Output" TextWrapping="Wrap" Background="{x:Null}" SelectionBrush="{x:Null}" Width="241"/>
+                </DockPanel>
             </Grid>
-            
+
 
         </Grid>
 

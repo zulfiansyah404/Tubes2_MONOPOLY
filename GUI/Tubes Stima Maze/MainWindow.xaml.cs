@@ -15,17 +15,19 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Windows.Shapes;
 using System.Diagnostics.Eventing.Reader;
+using Tubes_Stima_Maze;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Diagnostics;
 
 namespace Tubes_Stima_Maze
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         // Atribut matriks char
         private char[,] matriks;
-
+        // private BFSnDFS
+        private BFSnDFS bfsdfs;
         public bool IsFileValid(string filePath)
         {
             // Mengecek apakah file memiliki ekstensi txt dengan 3 karakter terakhir 
@@ -71,6 +73,7 @@ namespace Tubes_Stima_Maze
                     if (c == 'K' || c == 'T' || c == 'R' || c == 'X')
                     {
                         matrix[i, j] = c;
+
                     }
                     else
                     {
@@ -103,10 +106,8 @@ namespace Tubes_Stima_Maze
             {
                 string filepath = openFileDialog.FileName;
 
-                MessageBox.Show(filepath);
                 if (IsFileValid(filepath))
                 {
-                    MessageBox.Show("File valid");
                     // Tulis path file pada textbox pathFile
                     Path.Text = filepath;
                     // Tampilkan matriks pada canvas
@@ -151,6 +152,46 @@ namespace Tubes_Stima_Maze
             }
         }
 
+
+        private void SearchGraphDrawing(char[,] matrix)
+        {
+            int countVisited = 0;
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            // cellSize = 350/banyaknya kolom
+            double cellSize = 350.0 / cols;
+            double cellSize2 = 350.0 / rows;
+
+            // Membersihkan canvas
+            canvas.Children.Clear();
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    // Membuat rectangle
+                    Rectangle rect = new Rectangle();
+                    rect.Width = cellSize;
+                    rect.Height = cellSize2;
+                    rect.Stroke = Brushes.Black;
+                    rect.Tag = matrix[i, j];
+                    rect.Fill = GetColorForChar(matrix[i, j]);
+                    if (matriks[i,j] == '*')
+                    {
+                        countVisited++;
+                    }
+
+                    // Menempatkan rectangle pada canvas
+                    canvas.Children.Add(rect);
+                    Canvas.SetLeft(rect, j * cellSize);
+                    Canvas.SetTop(rect, i * cellSize2);
+                } 
+            }
+            Nodes_Output.Text = countVisited.ToString();
+            canvas.InvalidateVisual();
+            Application.Current.Dispatcher.Invoke(() => { });
+            //Task.Delay(500).Wait();
+        }
         private Brush GetColorForChar(char c)
         {
             switch (c)
@@ -164,19 +205,8 @@ namespace Tubes_Stima_Maze
                 case 'X':
                     return Brushes.Black;
                 default:
-                    return Brushes.White;
+                    return Brushes.Purple;
             }
-        }
-
-
-        private void buttonBFS_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("BFS");
-        }
-
-        private void buttonDFS_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("DFS");
         }
 
         private void S_Click(object sender, RoutedEventArgs e)
@@ -197,12 +227,109 @@ namespace Tubes_Stima_Maze
 
         private void Visualize_Click(object sender, RoutedEventArgs e)
         {
+            char[,] temp = this.matriks;
+            if (Path.Text != "None")
+            {
+                if (Choose_Algorithm.Text == "DFS")
+                {
+                    DateTime start = DateTime.Now;
+                    Stack<koor> dfs = BFSnDFS.DFS(this.matriks);
+                    DateTime end = DateTime.Now;
+                    TimeSpan duration = end - start;
+                    Execution_Time_Output.Text = duration.TotalMilliseconds.ToString() + " ms";
+                    Route_Output.Text = stackKoorToString(dfs);
+                }
+                else if (Choose_Algorithm.Text == "BFS")
+                {
+                    DateTime start = DateTime.Now;
+                    Queue<koor> bfs = BFSnDFS.BFS(this.matriks);
+                    DateTime end = DateTime.Now;
+                    TimeSpan duration = end - start;
+                    Execution_Time_Output.Text = duration.TotalMilliseconds.ToString() + " ms";
+                    Route_Output.Text = queueKoorToString(bfs);
+                }
+
+                //SearchGraphDrawing(this.matriks);
+                
+            } else
+            {
+                MessageBox.Show("Masukkan dahulu path atau algoritma");
+            }
+            this.matriks = temp;
             
         }
 
-        private void BFS_Cheked(object sender, RoutedEventArgs e)
+        private void nguliAnjay()
         {
+            int sum = 0;
+            for (int i = 0; i < 100000000; i++)
+            {
+                sum++;
+            }
+        }
 
+        private string stackKoorToString(Stack<koor> s)
+        {
+            int count = 0;
+            string ans = "";
+            bool first = true;
+            int N = s.Count;
+            int i = 0;
+            foreach(var pair in s)
+            {
+                if (i + 1 == N)
+                {
+                    break;
+                }
+                // Ubah warna kolom menjadi ungu
+                this.matriks[pair.X,pair.Y] = '*';
+                SearchGraphDrawing(this.matriks);
+               
+                if (first)
+                {
+                    ans = "(" + pair.X.ToString() + "," + pair.Y.ToString() + ")" + ans;
+                    first = false;
+                } else
+                {
+                    ans = "(" + pair.X.ToString() + "," + pair.Y.ToString() + ") --> " + ans;
+                    count++;
+                }
+                i++;
+            }
+            Steps_Output.Text = count.ToString();
+            return ans;
+        }
+
+        private string queueKoorToString(Queue<koor> s)
+        {
+            int count = 0;
+            string ans = "";
+            bool first = true;
+            
+            koor node = s.Dequeue();
+
+            foreach(var pair in s)
+            {
+                //if ((node.X != pair.X) && (node.Y != pair.Y))
+                //{
+                this.matriks[pair.X, pair.Y] = '*';
+                SearchGraphDrawing(this.matriks);
+                if (first)
+                    {
+                        ans += "(" + pair.X.ToString() + "," + pair.Y.ToString() + ")";
+                        first = false;
+                    }
+                    else
+                    {
+                        ans += " --> (" + pair.X.ToString() + "," + pair.Y.ToString() + ")";
+                        count++;
+                    }
+                    node = pair;
+                //}
+                
+            }
+            Steps_Output.Text = count.ToString();
+            return ans;
         }
 
         private void TextPath_Input(object sender, TextCompositionEventArgs e)
@@ -211,10 +338,31 @@ namespace Tubes_Stima_Maze
 
         private void Selection_Algorithm_Change(object sender, SelectionChangedEventArgs e)
         {
-            Choose_Algorithm.Text = Algorthm_Box.Text;
+            if (Algorthm_Box.Text == "BFS")
+            {
+                Choose_Algorithm.Text = "DFS";
+            } else
+            {
+                Choose_Algorithm.Text = "BFS";
+            }
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Choose_Algorithm_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Steps_Output_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

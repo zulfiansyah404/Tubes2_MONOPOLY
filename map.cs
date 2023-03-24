@@ -39,11 +39,15 @@ namespace ppp{
         static int row;
         static int col;
         static koor start;
-        static List<koor> treasure = new List<koor>();
-        static Stack<koor> visited = new Stack<koor>();
-        static Stack<koor> avail = new Stack<koor>();
-        static Stack<char> path = new Stack<char>();
+        static List<koor> treasureDF = new List<koor>();
+        static List<koor> treasureBF = new List<koor>();
+        // static Stack<koor> visitedDFS = new Stack<koor>();
+        // static Stack<koor> availDFS = new Stack<koor>();
+        // static Queue<koor> visitedBFS = new Queue<koor>();
+        // static Queue<koor> availBFS = new Queue<koor>();
+        static Stack<char> pathDFS = new Stack<char>();
         static Stack<koor> pathKoor = new Stack<koor>();
+        
 
         static char[,] readMap(string fileName){
             string[] readText = File.ReadAllLines(fileName);
@@ -64,7 +68,8 @@ namespace ppp{
                     }
                     if(readText[i][j] == 'T'){
                         end = new koor(i,j);
-                        treasure.Add(end);
+                        treasureBF.Add(end);
+                        treasureDF.Add(end);
                     }
                 }
             }
@@ -96,29 +101,92 @@ namespace ppp{
             return temp;
         }
 
-        static bool DFS(char[,] map){
-            visited.Push(start);
-            avail.Push(start);
+        static Stack<koor> DFS(char[,] map){
+            Stack<koor> visitedDFS = new Stack<koor>();
+            Stack<koor> availDFS = new Stack<koor>();
+            visitedDFS.Push(start);  
+            availDFS.Push(start);
             // path.Push(start);
-            int treasureCount = treasure.Count;
+            int treasureCount = treasureDF.Count;
             int count = 0;
-            while(avail.Count>0){
-                koor currKoor = new koor(avail.Pop());
-                koor tempVisited = new koor(visited.Peek());
-                pathKoor.Push(currKoor);
-                visited.Push(currKoor);
-                // koor treasureTemp = new koor(treasure[0]);
-                // Console.WriteLine("VISITED: {0},{1}",tempVisited.X,tempVisited.Y);
-                // Console.WriteLine("Treasure: {0},{1}",treasureTemp.X,treasureTemp.Y);
-                
-                // for(int o=0;o<treasure.Count;o++){
-                //     Console.WriteLine("Treasure: {0},{1}",treasure[o].X,treasure[o].Y);
-                // }
+            while(availDFS.Count>0){
+                koor currKoor = new koor(availDFS.Pop());
+                koor tempvisitedDFS = new koor(visitedDFS.Peek());
+                // pathKoor.Push(currKoor);
+                visitedDFS.Push(currKoor);
                 Console.WriteLine("Current\t: {0},{1}",currKoor.X,currKoor.Y);
                 if(map[currKoor.X,currKoor.Y] == 'T'){
                     Console.WriteLine("FOUND {0}",count+1);
                     count++;
-                    treasure.Remove(currKoor);
+                    treasureDF.Remove(currKoor);
+                    if(count==treasureCount){
+                        break;
+                    }
+                }
+                foreach(var i in "DLUR"){
+                    koor temp2 = new koor(currKoor);
+                    // char p = 'O';
+                    if(i=='R'){
+                        if(currKoor.Y < col-1){ //CEK PINGGIRAN
+                            if(map[currKoor.X,currKoor.Y+1] != 'X' /*|| map[currKoor.X,currKoor.Y+1] == 'T' || map[currKoor.X,currKoor.Y+1] == 'K'*/){
+                                temp2 = new koor(currKoor.X,currKoor.Y+1);
+                                // p = 'R';
+                            }
+                        }
+                    } else if(i=='L'){
+                        if(currKoor.Y>0){ //CEK PINGGIRAN
+                            if(map[currKoor.X,currKoor.Y-1] != 'X' /*||  map[currKoor.X,currKoor.Y-1] == 'T' || map[currKoor.X,currKoor.Y-1] == 'K'*/){
+                                temp2 = new koor(currKoor.X,currKoor.Y-1);
+                                // p = 'L';
+                            }
+                        }
+                    } else if(i=='U'){
+                        if(currKoor.X > 0){ //CEK PINGGIRAN
+                            if(map[currKoor.X-1,currKoor.Y] != 'X' /*|| map[currKoor.X-1,currKoor.Y] == 'T' || map[currKoor.X-1,currKoor.Y] == 'K'*/){
+                                temp2 = new koor(currKoor.X-1,currKoor.Y);
+                                // p = 'U';
+                            }
+                        }
+                    } else if(i=='D'){
+                        if(currKoor.X < row-1){ //CEK PINGGIRAN
+                            if(map[currKoor.X+1,currKoor.Y] != 'X' /*|| map[currKoor.X+1,currKoor.Y] == 'T' || map[currKoor.X+1,currKoor.Y] == 'K'*/){
+                                temp2 = new koor(currKoor.X+1,currKoor.Y);
+                                // p = 'D';
+                            }
+                        }
+                    }
+    
+                    if(visitedDFS.Contains(temp2)){
+                        // Console.WriteLine("-------------");
+                        // path.Pop();
+                        continue;
+                    }
+                    availDFS.Push(temp2);
+                    // visited.Push(temp2);
+                }
+            }
+
+            return visitedDFS;
+        }
+
+        static Queue<koor> BFS(char[,] map){
+            Queue<koor> visitedBFS = new Queue<koor>();
+            Queue<koor> availBFS = new Queue<koor>();
+            visitedBFS.Enqueue(start);
+            availBFS.Enqueue(start);
+            // path.Push(start);
+            int treasureCount = treasureBF.Count;
+            int count = 0;
+            while(availBFS.Count>0){
+                koor currKoor = new koor(availBFS.Dequeue());
+                koor tempvisitedBFS = new koor(visitedBFS.Peek());
+                // pathKoor.Push(currKoor);
+                visitedBFS.Enqueue(currKoor);
+                Console.WriteLine("Current\t: {0},{1}",currKoor.X,currKoor.Y);
+                if(map[currKoor.X,currKoor.Y] == 'T'){
+                    Console.WriteLine("FOUND {0}",count+1);
+                    count++;
+                    treasureBF.Remove(currKoor);
                     if(count==treasureCount){
                         break;
                     }
@@ -156,21 +224,20 @@ namespace ppp{
                         }
                     }
     
-                    if(visited.Contains(temp2)){
-                        Console.WriteLine("-------------");
+                    if(visitedBFS.Contains(temp2)){
+                        // Console.WriteLine("-------------");
                         // path.Pop();
                         continue;
                     }
-                    avail.Push(temp2);
-                    // visited.Push(temp2);
+                    availBFS.Enqueue(temp2);
                 }
             }
 
-            return true;
+            return visitedBFS;
         }
 
         static void Main(){
-            char[,] map = readMap("pp.txt");
+            char[,] map = readMap("C:/Users/zulfi/OneDrive/Dokumen/Source Code/STIMA/Tubes2_MONOPOLY/test/sampel-2.txt");
             printMap(map);
             Console.WriteLine("Start: {0},{1}",start.X,start.Y);
             // avail.Push(start);
@@ -183,45 +250,55 @@ namespace ppp{
             // visited.Push(new int[]{0,1});
             // // Console.WriteLine("Visiteddddddd: {0},{1}",((int[])visited.Peek())[0],((int[])visited.Peek())[1]);
 
-            DFS(map);
-            // koor temp;
-            // while(avail.Count > 0){
-            //     temp = new koor(avail.Pop());
-            //     Console.WriteLine("Available: {0},{1}",temp.X,temp.Y);
-            // }
+            Stack<koor> ppp =  DFS(map);
+            koor temp;
+            ppp = reverseStack(ppp);
+            while(ppp.Count > 0){
+                temp = new koor(ppp.Pop());
+                Console.WriteLine("path: {0},{1}",temp.X,temp.Y);
+            }
+            
+            Console.WriteLine("====================================================");
+
+            Queue<koor> ooo = BFS(map);
+            koor temp1;
+            while(ooo.Count > 0){
+                temp1 = new koor(ooo.Dequeue());
+                Console.WriteLine("path: {0},{1}",temp1.X,temp1.Y);
+            }
             // while(visited.Count > 0){
             //     temp = new koor(visited.Pop());
             //     Console.WriteLine("Visited: {0},{1}",temp.X,temp.Y);
             // }
-            while(pathKoor.Count > 0){
-                koor temp = new koor(pathKoor.Pop());
-                koor temp2;
-                if(pathKoor.Count == 1){
-                    temp2 = new koor(pathKoor.Pop());
-                }else{
-                    temp2 = new koor(pathKoor.Peek());
-                }
+            // while(pathKoor.Count > 0){
+            //     koor temp = new koor(pathKoor.Pop());
+            //     koor temp2;
+            //     if(pathKoor.Count == 1){
+            //         temp2 = new koor(pathKoor.Pop());
+            //     }else{
+            //         temp2 = new koor(pathKoor.Peek());
+            //     }
                 
-                if(temp.X == temp2.X){
-                    if(temp.Y > temp2.Y){
-                        path.Push('R');
-                    }else{
-                        path.Push('L');
-                    }
-                }
-                else if(temp.Y == temp2.Y){
-                    if(temp.X > temp2.X){
-                        path.Push('D');
-                    }else{
-                        path.Push('U');
-                    }
-                }
-            }
+            //     if(temp.X == temp2.X){
+            //         if(temp.Y > temp2.Y){
+            //             path.Push('R');
+            //         }else{
+            //             path.Push('L');
+            //         }
+            //     }
+            //     else if(temp.Y == temp2.Y){
+            //         if(temp.X > temp2.X){
+            //             path.Push('D');
+            //         }else{
+            //             path.Push('U');
+            //         }
+            //     }
+            // }
 
-            // path = reverseStack(path);
-            while(path.Count>0){
-                Console.Write(path.Pop());
-            }
+            // // path = reverseStack(path);
+            // while(path.Count>0){
+            //     Console.Write(path.Pop());
+            // }
 
 
         }
