@@ -419,10 +419,16 @@
         <DockPanel x:Name="PathFile" LastChildFill="False" Margin="230,35,-1,0" Background="#FF1D203E" Grid.RowSpan="3" Opacity="0.9">
             <Label Content="Label" Width="0"/>
             <WrapPanel Width="100" Opacity="0.5"/>
+
         </DockPanel>
         <DockPanel
+            
             Width="230"
-            HorizontalAlignment="Left" Background="#8A2C2F48" Grid.RowSpan="3" Margin="0,35,0,0"/>
+            HorizontalAlignment="Left" Background="#8A2C2F48" Grid.RowSpan="3" Margin="0,35,0,0">
+
+
+        </DockPanel>
+
         <Frame Content="     &#xA;" Margin="230,0,0,31" Background="#FF2C2F48" Grid.RowSpan="2"/>
         <Button Content="X" HorizontalAlignment="Left" Margin="865,0,0,0" VerticalAlignment="Top" Click="Close_Click" Background="{x:Null}" Width="35" Height="34" BorderBrush="{x:Null}" Foreground="White" Grid.RowSpan="2" Style="{DynamicResource ButtonWindow}"/>
         <Button Style="{DynamicResource ButtonWindow}" Content="_" HorizontalAlignment="Left" Margin="830,-1,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Width="35" Height="35" Grid.RowSpan="2" Click="Minimize_Click"/>
@@ -466,6 +472,28 @@
         <Grid Grid.RowSpan="2">
             <Canvas x:Name="canvas" Background="Black" Margin="250,127,300,-411" Width="350" Height="350"/>
         </Grid>
+
+        <Grid Width="296" HorizontalAlignment="Right" Margin="0,59,0,10" Grid.Row="2">
+            <Grid x:Name="Route" Margin="0,0,0,325">
+                <Label Content="Route : R-D-R-D" FontWeight="Bold" Foreground="White"
+                       HorizontalAlignment="Center" Margin="0,0,0,10"/>
+            </Grid>
+            <Grid x:Name="Steps" Margin="0,40,0,281">
+                <Label Content="Steps : 4" FontWeight="Bold" Foreground="White"
+                       HorizontalAlignment="Center"/>
+            </Grid>
+            <Grid x:Name="Nodes" Margin="0,62,0,281">
+                <Label Content="Nodes : 4" FontWeight="Bold" Foreground="White"
+                       HorizontalAlignment="Center" Margin="0,0,0,-10"/>
+            </Grid>
+            <Grid x:Name="RunTimes" Margin="0,89,0,249">
+                <Label Content="Run Time : 4ms" FontWeight="Bold" Foreground="White"
+                       HorizontalAlignment="Center" Margin="0,0,0,-10"/>
+            </Grid>
+            
+
+        </Grid>
+
 
     </Grid>
 </Window>
